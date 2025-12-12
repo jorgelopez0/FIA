@@ -1,0 +1,2 @@
+bisiesto(X) :- multiplo(X,4),multiplo(X,100),multiplo(X,400).
+multiplo(X,Y) :- X mod Y is 0.

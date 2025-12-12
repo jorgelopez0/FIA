@@ -1,0 +1,28 @@
+libro_de_familia(esposo(nombre(antonio,garcia,fernandez),profesion(arquitecto),salario(30000)),esposa(nombre(ana,ruiz,lopez),profesion(docente),salario(12000)),domicilio(sevilla)).
+
+libro_de_familia(esposo(nombre(luis,alvarez,garcia),profesion(arquitecto),salario(40000)),esposa(nombre(ana,romero,soler),profesion(sus_labores),salario(0)),domicilio(sevilla)).
+
+libro_de_familia(esposo(nombre(bernardo,bueno,martinez),profesion(docente),salario(12000)),esposa(nombre(laura,rodriguez,millan),profesion(medico),salario(25000)),domicilio(cuenca)).
+
+libro_de_familia(esposo(nombre(miguel,gonzalez,ruiz),profesion(empresario),salario(40000)),esposa(nombre(belen,salguero,cuevas),profesion(sus_labores),salario(0)),domicilio(dos_hermanas)).
+
+tiene_profesion(Nombre, Profesion) :- libro_de_familia(esposo(nombre(N,_,_),profesion(Profesion),_),_,_),Nombre = N.
+
+tiene_profesion(Nombre, Profesion) :- libro_de_familia(_,esposa(nombre(N,_,_),profesion(Profesion),_),_),Nombre = N.
+
+
+salario_familia(Esposo, Esposa, Salario) :-
+libro_de_familia(esposo(nombre(N1,_,_),_,salario(Salario1)),esposa(nombre(N2,_,_),_,salario(Salario2)),_), Esposo = N1, Esposa = N2, Salario is Salario1 + Salario2.
+
+
+gana_mas_de(Nombre,Cantidad) :-
+libro_de_familia(esposo(nombre(N,_,_),_,salario(Salario),_,_),Nombre = N, Salario > Cantidad.
+
+gana_mas_de(Nombre,Cantidad) :-
+libro_de_familia(_,esposa(nombre(N,_,_),_,salario(Salario)),_),Nombre = N, Salario > Cantidad.
+
+gana_menos_de(Nombre,Cantidad) :-
+libro_de_familia(esposo(nombre(N,_,_),_,salario(Salario),_,_),Nombre = N, Salario < Cantidad.
+
+gana_menos_de(Nombre,Cantidad) :-
+libro_de_familia(_,esposa(nombre(N,_,_),_,salario(Salario)),_),Nombre = N, Salario < Cantidad.

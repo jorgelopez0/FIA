@@ -1,0 +1,1 @@
+cuadrado(A,B):- B is A*A.

@@ -1,0 +1,4 @@
+a false porque no se puede unificar
+b false porque no se puede unificar 
+c true porque el operador compara las operaciones aritmeticas
+d true desigualdad al no poderse unificar es true

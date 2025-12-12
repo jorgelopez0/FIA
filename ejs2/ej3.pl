@@ -1,0 +1,1 @@
+media(X,Y,M) :- M is (X+Y)/2.
